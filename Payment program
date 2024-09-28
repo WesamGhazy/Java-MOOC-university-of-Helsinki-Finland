@@ -1,0 +1,71 @@
+
+public class MainProgram {
+
+    public static void main(String[] args) {
+  
+        PaymentCard paulsCard = new PaymentCard(20);
+        PaymentCard mattsCard = new PaymentCard(30);
+        
+        paulsCard.eatHeartily();
+       
+        mattsCard.eatAffordably();
+        System.out.println("Paul: The card has a balance of "+paulsCard+"euros");
+        System.out.println("Matt: The card has a balance of "+mattsCard+"euros");
+        
+        
+        paulsCard.addMoney(20);
+       
+        mattsCard.eatHeartily();
+        
+        System.out.println("Paul: The card has a balance of "+paulsCard+"euros");
+        System.out.println("Matt: The card has a balance of "+mattsCard+"euros");
+        paulsCard.eatAffordably();
+        paulsCard.eatAffordably();
+        mattsCard.addMoney(50);
+        System.out.println("Paul: The card has a balance of "+paulsCard+"euros");
+        System.out.println("Matt: The card has a balance of "+mattsCard+"euros");
+        
+        
+    
+    }
+}
+
+public class PaymentCard {
+    
+    private double balance;
+    
+    public  PaymentCard( double openeingBalance){
+        
+        this.balance=openeingBalance;
+    }
+    
+    public String toString(){
+        return "The card has a balance of "+this.balance+" euros";
+    }
+    
+    public void eatAffordably(){
+        if (balance>= 2.6){
+        balance = balance -2.60;
+        }
+    }
+    
+    public void eatHeartily(){
+        if (balance>= 4.6){
+        balance = balance -4.60;
+        }
+    }
+    public void addMoney(double amount){
+        
+        if (amount< 0){
+         return;
+        }
+        if (balance + amount > 150){
+            balance = 150;
+        } else{
+        balance+=amount;
+        }
+        
+    }
+}
+
+
